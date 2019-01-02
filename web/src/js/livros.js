@@ -6,7 +6,7 @@ let livros = [
   }
 ]
 
-function AdicionarLivro(e){
+var AdicionarLivro = function(e){
   e.preventDefault()
 
   nome = document.getElementById("nome_livro").value;
@@ -22,7 +22,7 @@ function AdicionarLivro(e){
   document.getElementById("formulario").reset();
 };
 
-function MostraLivros() {
+var MostrarLivros = function () {
   let output = ""
   livros.forEach(function(livro){
     output +=
@@ -32,8 +32,11 @@ function MostraLivros() {
      <td>${livro.isbn}</td>
      </tr>
     `
-  })
+  });
 
   document.getElementById("conteudo").innerHTML = output;
 };
+
+window.addEventListener('load', MostrarLivros);
 document.getElementById('botao-enviar').addEventListener('click', AdicionarLivro);
+document.getElementById("formulario").addEventListener('reset', MostrarLivros);
