@@ -1,4 +1,10 @@
-let livros = []
+let livros = [
+  {
+    "nome": "fanta",
+    "autor" : "coca",
+    "isbn": 3425
+  }
+]
 
 function AdicionarLivro(e){
   e.preventDefault()
@@ -16,4 +22,18 @@ function AdicionarLivro(e){
   document.getElementById("formulario").reset();
 };
 
+function MostraLivros() {
+  let output = ""
+  livros.forEach(function(livro){
+    output +=
+    `<tr>
+     <td>${livro.nome}</td>
+     <td>${livro.autor}</td>
+     <td>${livro.isbn}</td>
+     </tr>
+    `
+  })
+
+  document.getElementById("conteudo").innerHTML = output;
+};
 document.getElementById('botao-enviar').addEventListener('click', AdicionarLivro);
