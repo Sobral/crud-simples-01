@@ -24,7 +24,7 @@ var MostrarLivros = function () {
      <td>${livro.nome}</td>
      <td>${livro.autor}</td>
      <td>${livro.isbn}</td>
-     <td><button onclick="ExcluirLivro(${livro.isbn},MostrarLivros)">Excluir</button></td>
+     <td><button onclick="ExcluirLivro('${livro.isbn}',MostrarLivros)">Excluir</button></td>
      </tr>
     `
   });
@@ -32,10 +32,10 @@ var MostrarLivros = function () {
   document.getElementById("conteudo").innerHTML = output;
 };
 
-var ExcluirLivro = function (elem, callback){
+var ExcluirLivro = function (id, callback){
 
   livros = livros.filter(function(livro) {
-    return (livro.isbn !== elem.id);
+    return (livro.isbn !== id);
   });
 
   callback();
